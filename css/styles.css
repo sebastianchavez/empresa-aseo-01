@@ -4,6 +4,19 @@
    ============================================================ */
 
 /* ---------- Animaciones keyframes ---------- */
+/* Las entradas laterales no deben ampliar el ancho del documento. */
+html,
+body {
+  overflow-x: clip;
+}
+
+[data-menu-panel] {
+  max-height: calc(100vh - 5rem);
+  max-height: calc(100dvh - 5rem);
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+}
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -121,6 +134,18 @@
 .reveal-right.is-visible {
   opacity: 1;
   transform: translateX(0);
+}
+
+@media (max-width: 639px) {
+  .reveal-left,
+  .reveal-right {
+    transform: translateY(28px);
+  }
+
+  .reveal-left.is-visible,
+  .reveal-right.is-visible {
+    transform: translateY(0);
+  }
 }
 
 .reveal-scale {
